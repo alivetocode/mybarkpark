@@ -1,0 +1,31 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// park overview=> url(http://www.clker.
+//com/cliparts/7/3/5/0/11949847481751662417park_nicu_buculei_01.svg.hi.png);
+//
+// Homepage  /app-page1.png
+//  New dog   /Dog-tag.png
+
+
+body {
+  background-image: url(https://s3.amazonaws.com/BarkPark/images/app-page1.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+  &.dogs {
+    background-image: url(https://s3.amazonaws.com/BarkPark/images/Dog-tag.png);
+  }
+  &.parks-show {
+    background-image: url(https://s3.amazonaws.com/BarkPark/images/barkpark-overhead-dogs.png);
+  }
+  &.dogs-new{
+   margin-top: 100px;
+  }
+}
+
+

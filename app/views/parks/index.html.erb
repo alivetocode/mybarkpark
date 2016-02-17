@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="small-8 columns">
+
+  <h1>Park Listing</h1>
+
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Checked In Now </th>
+      </tr>
+
+      <%  @parks.each do |park| %>
+        <tr>
+          <td><%= link_to park.name, park_path(park) %></td>
+          <td><%= park.address %></td>
+          <td><%= park.city %></td>
+          <td><%= park.state %></td>
+          <td><%= park.zip_code %></td>
+          <td><%= park.active_check_ins.count %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= link_to "Add a park", new_park_path %> |
+    <%= link_to "Home", root_path %>
+  </div>
+
+  <div class="small-4 columns">
+    <h3>Search Park Listing</h3>
+  <%= search_form_for @search do |f| %>
+      <%= f.label :name_cont, "Name Contains" %>
+      <%= f.text_field :name_cont %>
+      <%= f.label :city_cont, "City Contains" %>
+      <%= f.text_field :city_cont %>
+      <%= f.label :zip_code_cont, "Zip Code" %>
+      <%= f.text_field :zip_code_cont %>
+      <%= f.submit "Search" %>
+    <% end %>
+  </div>
+</div>
+

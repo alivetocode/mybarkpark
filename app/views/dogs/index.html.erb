@@ -1,0 +1,27 @@
+<h1>My Dogs</h1>
+
+<table>
+  <!-- <thead>
+    <tr>
+      <th>Dog name</th>
+    </tr>
+  </thead> -->
+
+  <tbody>
+    <% @dogs.each do |dog|%>
+    <tr>
+       <td><%= link_to dog.name, owner_dog_path(current_owner, dog), class: 'button round' %></td >
+        <!--<td><%= link_to 'Show', owner_dog_path(current_owner, dog)  %></td > -->
+        <td><%= link_to 'Edit', edit_owner_dog_path(current_owner, dog) %></td >
+        <td><%= link_to 'Destroy', owner_dog_path(current_owner, dog), method: :delete, data: { confirm: 'Are you sure?' } %></td >
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Add a dog", new_owner_dog_path(current_owner) %> |
+<%= link_to "Back", :back %>
+
+
+
+

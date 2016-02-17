@@ -1,0 +1,18 @@
+
+
+
+<% if owner_signed_in? %>
+  <ul>
+  <li class="bone-button">Logged in as <strong><%= current_owner.email %></strong>.
+  <%= link_to 'Edit profile', edit_owner_registration_path %> |
+  <%= link_to "Logout", destroy_owner_session_path, method: :delete %> |
+  <%= link_to "Add a dog", new_owner_dog_path(current_owner) %> |
+  <%= link_to "My Dogs", owner_dogs_path(current_owner) %> |
+  <%= link_to "Check-in to a park", parks_path %>
+
+<% else %>
+  <%= link_to "Sign Up", new_owner_registration_path %> |
+  <%= link_to "Login", new_owner_session_path %> |
+
+<% end %>
+

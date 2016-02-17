@@ -1,0 +1,26 @@
+<h1>Check In to #interpolate park name</h1>
+
+
+<% if @check_in.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= pluralize(@check_in.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
+      <ul>
+      <% @check_in.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+
+ <%= form_for ([@park, @check_in]) do |f| %>
+
+  <div>
+    <%= f.label :dog_id, "Select Your Dog" %>
+    <%= f.collection_select(:dog_id, @owner.dogs, :id, :name) %>
+  </div>
+  <div>
+    <%= f.submit 'Check In', :class => "button"  %>
+  </div>
+
+<%end %>

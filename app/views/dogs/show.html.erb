@@ -1,0 +1,16 @@
+<h1></h1>
+<p><%= notice %></p>
+<%= image_tag @dog.photo_url %>
+<p>Name: <%= @dog.name %></p>
+<p>Breed: <%= @dog.breed %></p>
+<p>Color: <%= @dog.color %></p>
+<p>Gender: <%= @dog.gender %></p>
+<p>Personality Attributes: <%= @dog.personality_attributes %></p>
+
+
+<%= image_tag @dog.owner.photo_url.to_s %>
+<p>Owner: <%= @dog.owner.full_name %> </p>
+<%# link_to "Add another dog", new_owner_dog_path, :class => "button"  %>
+<%# link_to "Back to home", root_path, :class => "button"  %>
+<%= link_to "My Dogs", owner_dogs_path(current_owner) %><br>
+<%= link_to "Home", root_path %>

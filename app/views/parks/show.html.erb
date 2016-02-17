@@ -1,0 +1,32 @@
+
+<h4><%= @park.name %></h4>
+<!--<p>Address: <%= @park.address %></p>
+<p>City: <%= @park.city %></p>
+<p>State: <%= @park.state %></p>
+<p>Zip code: <%= @park.zip_code %></p>
+<p>Description: <%= @park.description %></p> -->
+
+
+<%= link_to "Back to parks", parks_path  %><br />
+<!-- <%= link_to "Check in to this park", new_park_check_in_path(@park), :class => "button"  %><br /> -->
+
+<% current_owner.dogs.each do |dog| %>
+
+  <% if active = @park.check_in_for(dog) %>
+      <%= form_for [@park, active] do |f| %>
+        <%= f.submit "Check Out #{dog.name}", class: 'button' %>
+      <% end %>
+
+  <% else %>
+
+    <%= form_for @check_in, url: park_check_ins_path(@park, dog_id: dog.id) do |f| %>
+      <%= f.submit "Check In #{dog.name}", class: 'button' %>
+    <% end %>
+
+  <% end %>
+<% end %><h3>Dogs Currently Checked in</h3>
+<% @park.active_check_ins.each do |checkin| %>
+
+  <%= link_to checkin.dog.name, owner_dog_path(current_owner, checkin.dog) %>
+
+  <% end %>

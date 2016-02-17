@@ -1,0 +1,64 @@
+<%= link_to "Back", :back, class: "smal button radius" %>
+<div class="new_dog">
+
+<div class="row">
+  <div class="small-1 columns"></div>
+  <div class="small-10 small-centered columns">
+    <h1>Add Your Dog</h1>
+  </div>
+  <div class="small-1 columns"></div>
+</div>
+
+<% if @dog.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
+      <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="small-1 columns"></div>
+  <div class="small-10 small-centered columns"><div>
+<%= form_for([current_owner, @dog]) do |f| %>
+
+    <div>
+    <%= f.label :name, "Name *" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+  </div>
+  <div>
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div>
+    <%= f.label :gender, "Gender *" %>
+    <%= select_tag "dog[gender]", options_for_select(["Male","Female"]), include_blank: "true" %>
+  </div>
+
+  <div>
+    <%= f.label :personality_attributes %>
+    <%= f.text_field :personality_attributes %>
+  </div>
+  <div><%= f.label :photo_url, "Photo" %>
+  <%= f.file_field :photo_url %>
+  </div>
+  <div>
+    <%= f.submit 'Add a dog', class: 'button round' %>
+  </div>
+<% end %>
+</div>
+  <div class="small-1 columns"></div>
+</div>
+</div>
+
+
+
+

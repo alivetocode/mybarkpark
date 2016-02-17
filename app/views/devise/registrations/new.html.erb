@@ -1,0 +1,44 @@
+<div class='row'>
+
+  <div class="large-8 columns">
+<h2>Sign Up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :first_name, "First Name" %><br />
+  <%= f.text_field :first_name, :autofocus => true%></div>
+
+  <div><%= f.label :last_name, "Last Name" %><br />
+  <%= f.text_field :last_name%></div>
+
+
+  <div><%= f.label :city, "City" %><br />
+  <%= f.text_field :city%></div>
+
+  <div><%= f.label :state, "State" %><br />
+  <%= f.text_field :state %></div>
+
+  <div><%= f.label :photo_url, "Photo" %><br />
+  <%= f.file_field :photo_url %></div>
+
+<div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation, "Password Confirmation" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign Up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+  </div>
+  <div class="large-4 columns"></div>
+
+</div>
+
